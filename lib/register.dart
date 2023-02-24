@@ -1,0 +1,242 @@
+import 'package:flutter/material.dart';
+import 'package:login_register/consts.dart';
+
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
+  final passController = TextEditingController();
+  bool? isVisible;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    isVisible = true;
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    passController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple,
+        elevation: 0.0,
+        toolbarHeight: 60.0,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+                children: [
+                  Container(
+                    height: 300.0,
+                    child: CustomPaint(
+                      size: Size(double.infinity,(double.infinity).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                      painter: ProjectCustomPainter(),
+                    ),
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 58.0),
+                      child: Text("Register", style: TextStyle(fontSize: 50.0, color: Colors.white, fontWeight: FontWeight.bold),),
+                    ),
+                  ),
+                ]
+            ),
+            // name form
+            Padding(
+              padding: const EdgeInsets.only(
+                  right: 18.0, left: 18.0, bottom: 10.0),
+              child: TextFormField(
+                cursorHeight: 25,
+                keyboardType: TextInputType.name,
+                // TextInputType.emailAddress
+                controller: nameController,
+                // emailController
+                cursorColor: Colors.deepPurple,
+                obscureText: false,
+                onFieldSubmitted: (String value) {},
+                onSaved: (value) {},
+                onChanged: (String value) {},
+                validator: (value) =>
+                value!.isEmpty ? "Enter this empty form" : "",
+                style: const TextStyle(
+                    color: Colors.black12,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0),
+                decoration: InputDecoration(
+                    hintText: "Name",
+                    // "Email"
+                    prefixIcon: const Icon(
+                      Icons.person,
+                      color: Colors.black,
+                    ),
+                    // Colors.blueAccent
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1))),
+              ),
+            ),
+            // email form
+            Padding(
+              padding: const EdgeInsets.only(
+                  right: 18.0, left: 18.0, bottom: 10.0),
+              child: TextFormField(
+                cursorHeight: 25,
+                keyboardType: TextInputType.emailAddress,
+                // TextInputType.emailAddress
+                controller: emailController,
+                // emailController
+                cursorColor: Colors.deepPurple,
+                obscureText: false,
+                onFieldSubmitted: (String value) {},
+                onSaved: (value) {},
+                onChanged: (String value) {},
+                validator: (value) =>
+                value!.isEmpty ? "Enter this empty form" : "",
+                style: const TextStyle(
+                    color: Colors.black12,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0),
+                decoration: InputDecoration(
+                    hintText: "Email",
+                    // "Email"
+                    prefixIcon: const Icon(
+                      Icons.email,
+                      color: Colors.black,
+                    ),
+                    // Colors.blueAccent
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1))),
+              ),
+            ),
+            // phone form
+            Padding(
+              padding: const EdgeInsets.only(
+                  right: 18.0, left: 18.0, bottom: 10.0),
+              child: TextFormField(
+                cursorHeight: 25,
+                keyboardType: TextInputType.phone,
+                // TextInputType.emailAddress
+                controller: phoneController,
+                // emailController
+                cursorColor: Colors.deepPurple,
+                obscureText: false,
+                onFieldSubmitted: (String value) {},
+                onSaved: (value) {},
+                onChanged: (String value) {},
+                validator: (value) =>
+                value!.isEmpty ? "Enter this empty form" : "",
+                style: const TextStyle(
+                    color: Colors.black12,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0),
+                decoration: InputDecoration(
+                    hintText: "Phone",
+                    // "Email"
+                    prefixIcon: const Icon(
+                      Icons.phone,
+                      color: Colors.black,
+                    ),
+                    // Colors.blueAccent
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1))),
+              ),
+            ),
+            // password form
+            Padding(
+              padding: const EdgeInsets.only(
+                  right: 18.0, left: 18.0, bottom: 10.0),
+              child: TextFormField(
+                cursorHeight: 25,
+                keyboardType: TextInputType.visiblePassword,
+                // TextInputType.emailAddress
+                controller: passController,
+                // emailController
+                cursorColor: Colors.deepPurple,
+                obscureText: isVisible!,
+                onFieldSubmitted: (String value) {},
+                onSaved: (value) {},
+                onChanged: (String value) {},
+                validator: (value) =>
+                value!.isEmpty ? "Enter this empty form" : "",
+                style: const TextStyle(
+                    color: Colors.black12,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0),
+                decoration: InputDecoration(
+                    prefixIcon: const Icon(
+                      Icons.password,
+                      color: Colors.black,
+                    ),
+                    hintText: "Password",
+                    // "Email"
+                    // Colors.blueAccent
+                    suffixIcon: IconButton(
+                        onPressed: () => setState(() {
+                          isVisible = !isVisible!;
+                        }),
+                        icon: Icon(isVisible!
+                            ? Icons.visibility
+                            : Icons.visibility_off)),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(14.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1)),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide(color: Colors.black, width: 1))),
+              ),
+            ),
+            // Register button
+            Container(
+                decoration: const BoxDecoration(
+                  // border: Border.all(width: 1, color: Colors.white),
+                    borderRadius: BorderRadius.all(Radius.circular(14.0))),
+                width: 280.0,
+                height: 50.0,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // navTo(context, HomePage());
+                  },
+                  style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(Colors.deepPurple)),
+                  child: const Text('Register',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 27.0,
+                          fontWeight: FontWeight.bold)),
+                ))
+          ],
+        ),
+      ),
+    );
+  }
+}
