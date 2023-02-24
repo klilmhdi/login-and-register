@@ -32,28 +32,27 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: Center(
-        child: Column(
-          children: [
-            Stack(
-              children: [
-                Container(
-                height: 300.0,
-                child: CustomPaint(
-                  size: Size(double.infinity,(double.infinity).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: ProjectCustomPainter(),
-                ),
-              ),
-                Center(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              ClipPath(
+                child: Container(
+                  width: double.infinity,
+                  height: 380.0,
+                  color: Colors.deepPurple,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 58.0),
-                    child: Text("Login", style: TextStyle(fontSize: 50.0, color: Colors.white, fontWeight: FontWeight.bold),),
+                    padding: const EdgeInsets.only(bottom: 125.0),
+                    child: Container(
+                      child: Center(
+                        child: Text('LOGIN', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 45.0),),
+                      ),
+                    ),
                   ),
                 ),
-              ]
-            ),
-            SingleChildScrollView(
-              child: Column(
+                clipper: ProjectCustomPainter(),
+              ),
+              Column(
                 children: [
                   // email form
                   Padding(
@@ -71,9 +70,9 @@ class _LoginPageState extends State<LoginPage> {
                       onSaved: (value) {},
                       onChanged: (String value) {},
                       validator: (value) =>
-                      value!.isEmpty ? "Enter this empty form" : "",
+                          value!.isEmpty ? "Enter this empty form" : "",
                       style: const TextStyle(
-                          color: Colors.black12,
+                          color: Colors.deepPurple,
                           fontWeight: FontWeight.bold,
                           fontSize: 18.0),
                       decoration: InputDecoration(
@@ -86,13 +85,17 @@ class _LoginPageState extends State<LoginPage> {
                           // Colors.blueAccent
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(14.0),
-                              borderSide: BorderSide(color: Colors.black, width: 1)),
+                              borderSide:
+                                  BorderSide(color: Colors.black, width: 1)),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
-                              borderSide: BorderSide(color: Colors.black, width: 1))),
+                              borderSide:
+                                  BorderSide(color: Colors.black, width: 1))),
                     ),
                   ),
-                  SizedBox(height: 10.0,),
+                  SizedBox(
+                    height: 10.0,
+                  ),
                   // password form
                   Padding(
                     padding: const EdgeInsets.only(
@@ -109,9 +112,9 @@ class _LoginPageState extends State<LoginPage> {
                       onSaved: (value) {},
                       onChanged: (String value) {},
                       validator: (value) =>
-                      value!.isEmpty ? "Enter this empty form" : "",
+                          value!.isEmpty ? "Enter this empty form" : "",
                       style: const TextStyle(
-                          color: Colors.black12,
+                          color: Colors.deepPurple,
                           fontWeight: FontWeight.bold,
                           fontSize: 18.0),
                       decoration: InputDecoration(
@@ -124,24 +127,27 @@ class _LoginPageState extends State<LoginPage> {
                           // Colors.blueAccent
                           suffixIcon: IconButton(
                               onPressed: () => setState(() {
-                                isVisible = !isVisible!;
-                              }),
+                                    isVisible = !isVisible!;
+                                  }),
                               icon: Icon(isVisible!
                                   ? Icons.visibility
                                   : Icons.visibility_off)),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(14.0),
-                              borderSide: BorderSide(color: Colors.black, width: 1)),
+                              borderSide:
+                                  BorderSide(color: Colors.black, width: 1)),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20.0),
-                              borderSide: BorderSide(color: Colors.black, width: 1))),
+                              borderSide:
+                                  BorderSide(color: Colors.black, width: 1))),
                     ),
                   ),
                   // login button
                   Container(
                       decoration: const BoxDecoration(
-                        // border: Border.all(width: 1, color: Colors.white),
-                          borderRadius: BorderRadius.all(Radius.circular(14.0))),
+                          // border: Border.all(width: 1, color: Colors.white),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(14.0))),
                       width: 280.0,
                       height: 50.0,
                       child: ElevatedButton(
@@ -149,7 +155,8 @@ class _LoginPageState extends State<LoginPage> {
                           // navTo(context, HomePage());
                         },
                         style: const ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(Colors.deepPurple)),
+                            backgroundColor:
+                                MaterialStatePropertyAll(Colors.deepPurple)),
                         child: const Text('login',
                             style: TextStyle(
                                 color: Colors.white,
@@ -162,8 +169,9 @@ class _LoginPageState extends State<LoginPage> {
                   // Register button
                   Container(
                       decoration: const BoxDecoration(
-                        // border: Border.all(width: 1, color: Colors.white),
-                          borderRadius: BorderRadius.all(Radius.circular(14.0))),
+                          // border: Border.all(width: 1, color: Colors.white),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(14.0))),
                       width: 280.0,
                       height: 50.0,
                       child: ElevatedButton(
@@ -171,7 +179,8 @@ class _LoginPageState extends State<LoginPage> {
                           navTo(context, RegisterPage());
                         },
                         style: const ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(Colors.deepPurple)),
+                            backgroundColor:
+                                MaterialStatePropertyAll(Colors.deepPurple)),
                         child: const Text('Register',
                             style: TextStyle(
                                 color: Colors.white,
@@ -179,9 +188,9 @@ class _LoginPageState extends State<LoginPage> {
                                 fontWeight: FontWeight.bold)),
                       ))
                 ],
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

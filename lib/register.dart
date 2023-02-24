@@ -35,32 +35,27 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
-        elevation: 0.0,
-        toolbarHeight: 60.0,
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Stack(
-                children: [
-                  Container(
-                    height: 300.0,
-                    child: CustomPaint(
-                      size: Size(double.infinity,(double.infinity).toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                      painter: ProjectCustomPainter(),
+            ClipPath(
+              child: Container(
+                width: double.infinity,
+                height: 380.0,
+                color: Colors.deepPurple,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 125.0),
+                  child: Container(
+                    child: Center(
+                      child: Text('Register', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 45.0),),
                     ),
                   ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 58.0),
-                      child: Text("Register", style: TextStyle(fontSize: 50.0, color: Colors.white, fontWeight: FontWeight.bold),),
-                    ),
-                  ),
-                ]
+                ),
+              ),
+              clipper: ProjectCustomPainter(),
             ),
             // name form
+            SizedBox(height: 20.0,),
             Padding(
               padding: const EdgeInsets.only(
                   right: 18.0, left: 18.0, bottom: 10.0),
@@ -78,7 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 validator: (value) =>
                 value!.isEmpty ? "Enter this empty form" : "",
                 style: const TextStyle(
-                    color: Colors.black12,
+                    color: Colors.deepPurple,
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0),
                 decoration: InputDecoration(
@@ -115,7 +110,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 validator: (value) =>
                 value!.isEmpty ? "Enter this empty form" : "",
                 style: const TextStyle(
-                    color: Colors.black12,
+                    color: Colors.deepPurple,
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0),
                 decoration: InputDecoration(
@@ -152,7 +147,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 validator: (value) =>
                 value!.isEmpty ? "Enter this empty form" : "",
                 style: const TextStyle(
-                    color: Colors.black12,
+                    color: Colors.deepPurple,
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0),
                 decoration: InputDecoration(
