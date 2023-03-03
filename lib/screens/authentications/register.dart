@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_register/consts.dart';
+import 'package:login_register/screens/task1_add_remove_elements/elements_screen.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -219,7 +220,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 50.0,
                 child: ElevatedButton(
                   onPressed: () {
-                    // navTo(context, HomePage());
+                    navTo(context, const ElementsPage());
                   },
                   style: const ButtonStyle(
                       backgroundColor: MaterialStatePropertyAll(Colors.deepPurple)),

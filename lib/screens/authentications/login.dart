@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_register/consts.dart';
 import 'package:login_register/screens/authentications/register.dart';
+import 'package:login_register/screens/task1_add_remove_elements/elements_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -152,7 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50.0,
                       child: ElevatedButton(
                         onPressed: () {
-                          // navTo(context, HomePage());
+                          navTo(context, const ElementsPage());
                         },
                         style: const ButtonStyle(
                             backgroundColor:
@@ -176,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 50.0,
                       child: ElevatedButton(
                         onPressed: () {
-                          navTo(context, RegisterPage());
+                          navTo(context, const RegisterPage());
                         },
                         style: const ButtonStyle(
                             backgroundColor:
