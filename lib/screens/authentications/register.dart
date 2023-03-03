@@ -76,8 +76,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   onFieldSubmitted: (String value) {},
                   onSaved: (value) {},
                   onChanged: (String value) {},
-                  validator: (value) =>
-                  value! != null ? "Enter this empty form" : null,
+                  validator: (value) {
+                    if(value! != null) {return "Enter more than 7";}
+                    else{
+                      null;
+                    }
+                  },
                   style: const TextStyle(
                       color: Colors.deepPurple,
                       fontWeight: FontWeight.bold,
@@ -113,8 +117,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   onFieldSubmitted: (String value) {},
                   onSaved: (value) {},
                   onChanged: (String value) {},
-                  validator: (value) =>
-                  value! != null ? "Enter this empty form" : null,
+                  validator: (value) {
+                    if(value! != null) {return "Enter more than 7";}
+                    else{
+                      null;
+                    }
+                  },
                   style: const TextStyle(
                       color: Colors.deepPurple,
                       fontWeight: FontWeight.bold,
@@ -150,8 +158,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   onFieldSubmitted: (String value) {},
                   onSaved: (value) {},
                   onChanged: (String value) {},
-                  validator: (value) =>
-                  value! != null ? "Enter this empty form" : null,
+                  validator: (value) {
+                    if(value! != null) {return "Enter valid form";}
+                    else{
+                      null;
+                    }
+                  },
                   style: const TextStyle(
                       color: Colors.deepPurple,
                       fontWeight: FontWeight.bold,
@@ -187,8 +199,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   onFieldSubmitted: (String value) {},
                   onSaved: (value) {},
                   onChanged: (String value) {},
-                  validator: (value) =>
-                  value! != null && value.length < 7 ? "Enter this empty form" : "",
+                  validator: (value) {
+                    if(value! != null && value.length < 7) {return "Enter more than 7";}
+                    else{
+                      null;
+                    }
+                  },
                   style: const TextStyle(
                       color: Colors.black12,
                       fontWeight: FontWeight.bold,

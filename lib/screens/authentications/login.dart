@@ -74,8 +74,9 @@ class _LoginPageState extends State<LoginPage> {
                         onFieldSubmitted: (String value) {},
                         onSaved: (value) {},
                         onChanged: (String value) {},
-                        validator: (value) =>
-                            value! != null ? "Enter this empty form" : null,
+                        validator: (value) {
+                          if(value!.isEmpty) {return "Enter valid form";}
+                        },
                         style: const TextStyle(
                             color: Colors.deepPurple,
                             fontWeight: FontWeight.bold,
@@ -116,8 +117,9 @@ class _LoginPageState extends State<LoginPage> {
                         onFieldSubmitted: (String value) {},
                         onSaved: (value) {},
                         onChanged: (String value) {},
-                        validator: (value) =>
-                            value! != null && value.length < 7 ? "Enter this empty form" : "",
+                        validator: (value) {
+                            if(value! != null && value.length < 7) {return "Enter more than 7";}
+                        },
                         style: const TextStyle(
                             color: Colors.deepPurple,
                             fontWeight: FontWeight.bold,
