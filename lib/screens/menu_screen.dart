@@ -9,23 +9,38 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black87,
       body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MaterialButton(
-                onPressed: () => navTo(context, ElementsPage()),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.white),
+              elevation: MaterialStatePropertyAll(0.0),
+              padding: MaterialStatePropertyAll(EdgeInsets.all(20.0)),
+              ),
+              onPressed: () => navTo(context, ElementsPage()),
               child: Text("Go to Add items screen"),
             ),
-            MaterialButton(
+            SizedBox(
+              height: 10.0,
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.white),
+                elevation: MaterialStatePropertyAll(0.0),
+                padding: MaterialStatePropertyAll(EdgeInsets.all(20.0)),
+              ),
               onPressed: () => navTo(context, SecondPage()),
               child: Text("To-Do Screen"),
             ),
-            MaterialButton(
-              onPressed: () => navTo(context, ElementsPage()),
-              child: Text("Go to Add items screen"),
-            )
+            // MaterialButton(
+            //   color: Colors.white,
+            //   onPressed: () => navTo(context, ElementsPage()),
+            //   child: Text("Go to Add items screen"),
+            // )
           ],
         ),
       ),
