@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_register/consts.dart';
 import 'package:login_register/screens/authentications/register.dart';
+import 'package:login_register/screens/menu_screen.dart';
 import 'package:login_register/screens/task1_add_remove_elements/elements_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -160,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: ElevatedButton(
                           onPressed: () {
                             bool isValidate = formKey.currentState!.validate();
-                            if(isValidate) navTo(context, const ElementsPage());
+                            if(isValidate) navAndFinish(context, const MenuPage());
                             // else
                           },
                           style: const ButtonStyle(

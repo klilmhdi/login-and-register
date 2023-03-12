@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 navTo(context, Widget) =>
     Navigator.push(context, MaterialPageRoute(builder: (context) => Widget));
 
+navAndFinish(context, Widget) => Navigator.pushAndRemoveUntil(
+    context, MaterialPageRoute(builder: (context) => Widget), (route) {
+  return false;
+});
+
 class ProjectCustomPainter extends CustomClipper<Path>{
   @override
   Path getClip(Size size) {

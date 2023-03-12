@@ -242,7 +242,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: ElevatedButton(
                     onPressed: () {
                       bool isValidate = formKey.currentState!.validate();
-                      if(isValidate) navTo(context, const ElementsPage());
+                      if(isValidate) navAndFinish(context, const ElementsPage());
                     },
                     style: const ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(Colors.deepPurple)),
